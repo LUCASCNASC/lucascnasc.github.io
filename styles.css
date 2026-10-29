@@ -167,23 +167,6 @@ a {
   padding: clamp(70px, 8vw, 120px) clamp(20px, 5vw, 80px);
 }
 
-.status-line {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 36px;
-  font-size: clamp(0.85rem, 1vw, 1rem);
-  color: rgba(236, 244, 247, 0.88);
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 16px rgba(98, 240, 191, 0.9);
-}
-
 .hero-content {
   display: flex;
   align-items: center;
@@ -579,10 +562,6 @@ a {
   .hero {
     min-height: auto;
     padding: 40px 18px 48px;
-  }
-
-  .status-line {
-    font-size: 0.8rem;
   }
 
   .photo-frame {
