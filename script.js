@@ -25,13 +25,13 @@ const translations = {
     'section.experience': 'Experiência',
     'experience.title': 'Trajetória profissional',
     'experience.gazin':
-      'Desenvolvi e mantive frameworks de automação E2E com Cypress, Playwright, Appium e Robot Framework. Também validei APIs com Postman e Swagger, integrei testes em pipelines de GitLab/Jenkins e usei GitHub Copilot e agentes de IA para melhorar geração de scripts e validação de requisitos.',
+      'Desenvolvi e mantive framework Playwright, integrando com GitLab CI em projeto de Seguros, com uso massivo de LLMs. Fui o responsável por testes de integração com terceiros via API Rest, com Postman e Swagger. Utilizei agents de IA para automatizar processos de QA, como geração de casos de teste, massa de teste, artefatos de teste, entre outros. Monitorei logs e métricas de qualidade com Datadog e Grafana. Fui um dos responsáveis na manutenção de sistemas legados, com foco em testes de regressão, validação de regras de negócio e análise de dados em PostgreSQL e SQL Server. Além disso, atuei efetivamente na implementação de novas features em um aplicativo mobile bancário.',
     'experience.fintech':
-      'Trabalhei em produtos financeiros web com testes de ponta a ponta, validação de API, testes de desempenho com k6, checagem de dados em PostgreSQL, pipelines de CI/CD em Azure DevOps e Bitbucket, além de processos de QA assistidos por IA.',
+      'Liderei testes de integração de APIs governamentais para sistemas de crédito. Desenvolvi e mantive framework de testes E2E com Cypress, TypeScript e JavaScript, utilizando LLMs como um potencializador, integrando com Bitbucket. Automatizei testes de API com Postman, além de ter sido o responsável por validar regras de negócio, analisar logs e executar lambdas na AWS. Liderei homologações em produção pós daily e atuei constantemente direto com os usuários do sistema, visando entender suas dores.',
     'experience.sabium':
-      'Automatizei testes E2E e de API para sistemas ERP, contábil e fiscal com Cypress, Playwright, TypeScript e JavaScript. Configurei ambientes com Docker e integrei validações em GitHub e GitLab.',
+      'Desenvolvi e mantive a primeira framework de testes E2E com Cypress, TypeScript e JavaScript, da empresa, com auxílio de LLMs. Liderei o desenvolvimento na automação de smoke testes para APIs Rest via Postman. Criei documentações de teste, buscando dar visibilidade das entregas aos stakeholders. Fui responsável pela criação e execução de casos de teste para sistemas legados Fiscal/Contábil para varejistas.',
     'experience.ncs':
-      'Liderei QA em projetos de migração de ERP para web, executei testes E2E em sistemas web e mobile, validei regras de negócio em PostgreSQL e apoiei a gestão de defeitos e treinamento técnico durante a entrega.',
+      'Liderei QA em projetos de migração de ERP para web, atuando diretamente no levantamento de requisitos, regras de negócio e critérios de aceite. Implementei as primeiras suítes de automação de testes com Cypress e integração com GitHub Actions. Fui o responsável pela criação de documentação interna e externa, visando auxiliar todos. Atuei na escrita e execução de casos de teste em sistemas legados para depósitos de materiais de construção.',
     'section.skills': 'Competências',
     'skills.title': 'Principais competências',
     'section.results': 'Resultados',
@@ -76,13 +76,13 @@ const translations = {
     'section.experience': 'Experience',
     'experience.title': 'Career journey',
     'experience.gazin':
-      'Designed and maintained E2E automation frameworks with Cypress, Playwright, Appium, and Robot Framework. I also validated APIs with Postman and Swagger, integrated tests into GitLab/Jenkins pipelines, and used GitHub Copilot and AI agents to improve script generation and requirement validation.',
+      'Built and maintained a Playwright framework, integrating it with GitLab CI on an insurance project and making extensive use of LLMs. I was responsible for third-party integration testing via REST APIs using Postman and Swagger. I used AI agents to automate QA processes, such as generating test cases, test data, and test artifacts. I monitored logs and quality metrics with Datadog and Grafana. I also helped maintain legacy systems, focusing on regression testing, business-rule validation, and data analysis in PostgreSQL and SQL Server. In addition, I actively contributed to implementing new features in a mobile banking app.',
     'experience.fintech':
-      'Worked on web-based financial products with end-to-end tests, API validation, k6 performance testing, PostgreSQL validation, CI/CD pipelines in Azure DevOps and Bitbucket, and AI-assisted quality workflows for faster delivery and deployment confidence.',
+      'Led integration testing of government APIs for credit systems. Developed and maintained an E2E testing framework with Cypress, TypeScript, and JavaScript, using LLMs as an enabler and integrating it with Bitbucket. Automated API tests with Postman and was responsible for validating business rules, analyzing logs, and running AWS Lambdas. Led production acceptance testing after daily releases and worked directly with system users to understand their pain points.',
     'experience.sabium':
-      'Automated E2E and API testing for ERP, accounting, and tax systems using Cypress, Playwright, TypeScript, and JavaScript. Built Docker-based test environments and integrated validation into GitHub and GitLab pipelines.',
+      'Developed and maintained the company’s first E2E testing framework, using Cypress, TypeScript, and JavaScript, with the help of LLMs. Led the development of automated API smoke tests with Postman. Created test documentation to provide stakeholders with visibility into deliveries. Was responsible for creating and executing test cases for legacy tax and accounting systems used by retailers.',
     'experience.ncs':
-      'Led QA for ERP-to-web migration projects, executed E2E testing across web and mobile systems, validated business rules in PostgreSQL, and supported defect management and technical training throughout delivery.',
+      'Led QA on ERP-to-web migration projects, directly contributing to requirements gathering, business rules, and acceptance criteria. Implemented the first test automation suites with Cypress and integrated them with GitHub Actions. Was responsible for creating internal and external documentation to support the team. Wrote and executed test cases for legacy systems used by building-material warehouses.',
     'section.skills': 'Skills',
     'skills.title': 'Core competencies',
     'section.results': 'Results',
