@@ -8,7 +8,6 @@ const translations = {
     'nav.education': 'Formação',
     'nav.languages': 'Idiomas',
     'nav.contact': 'Contato',
-    'hero.available': 'disponível para novos desafios',
     'hero.role': 'QA Engineer | Playwright & Cypress | CI/CD | IA | Testes Manuais',
     'hero.description':
       'QA Engineer com mais de 4 anos de experiência em automação, testes de API, validação funcional e processos com IA para produtos web, mobile, ERP, fintech e seguros.',
@@ -59,7 +58,6 @@ const translations = {
     'nav.education': 'Education',
     'nav.languages': 'Languages',
     'nav.contact': 'Contact',
-    'hero.available': 'available for new challenges',
     'hero.role': 'QA Engineer | Playwright & Cypress | CI/CD | AI Prompt | Manual Testing',
     'hero.description':
       'QA Engineer with 4+ years of experience in automation, API testing, functional validation, and AI-assisted QA workflows for web, mobile, ERP, fintech, and insurance products.',
