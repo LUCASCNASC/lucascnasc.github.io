@@ -17,7 +17,7 @@ const translations = {
     'section.about': 'Sobre',
     'about.title': 'Perfil profissional',
     'about.summary':
-      'QA Engineer focado em automação estratégica e inteligência artificial para melhorar a qualidade do ciclo de vida do software, reduzir riscos, acelerar entregas e otimizar o time-to-market. Trabalho com projetos web, mobile, ERP, financeiros, seguros e integrações governamentais.',
+      'QA Engineer focado em automação estratégica, inteligência artificial e testes manuais para melhorar a qualidade do ciclo de vida do software, reduzir riscos, acelerar entregas e otimizar o time-to-market. Trabalho com projetos web, mobile, ERP, financeiros, seguros e integrações governamentais. E para tudo isso funcionar, atuo em total colaboração com o time e negócio.',
     'stats.years': 'Anos de experiência',
     'stats.projects': 'Projetos e sistemas',
     'stats.ai': 'QA com IA',
