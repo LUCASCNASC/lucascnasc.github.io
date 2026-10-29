@@ -1,5 +1,8 @@
 const translations = {
   pt: {
+    'page.title': 'Lucas Camargo | QA Engineer',
+    'page.description':
+      'Portfólio de Lucas Camargo, QA Engineer com experiência em automação, testes de API, CI/CD e inteligência artificial.',
     'nav.home': 'Início',
     'nav.about': 'Sobre',
     'nav.experience': 'Experiência',
@@ -8,6 +11,11 @@ const translations = {
     'nav.education': 'Formação',
     'nav.languages': 'Idiomas',
     'nav.contact': 'Contato',
+    'accessibility.navigation': 'Navegação principal',
+    'accessibility.siteActions': 'Ações do site',
+    'accessibility.languageSelector': 'Selecionar idioma',
+    'accessibility.profile': 'Perfil',
+    'accessibility.portrait': 'Retrato de Lucas Camargo',
     'hero.role': 'QA Engineer | Playwright & Cypress | CI/CD | IA | Testes Manuais',
     'hero.description':
       'QA Engineer com mais de 4 anos de experiência em automação, testes de API, validação funcional e processos com IA para produtos web, mobile, ERP, fintech e seguros.',
@@ -23,6 +31,10 @@ const translations = {
     'stats.languages': 'Bilíngue',
     'section.experience': 'Experiência',
     'experience.title': 'Trajetória profissional',
+    'date.gazin': 'Ago 2025 - Atual',
+    'date.finnet': 'Fev 2025 - Jul 2025',
+    'date.sabium': 'Jan 2024 - Fev 2025',
+    'date.ncs': 'Dez 2021 - Dez 2023',
     'experience.gazin':
       'Desenvolvi e mantive framework Playwright, integrando com GitLab CI em projeto de Seguros, com uso massivo de LLMs. Fui o responsável por testes de integração com terceiros via API Rest, com Postman e Swagger. Utilizei agents de IA para automatizar processos de QA, como geração de casos de teste, massa de teste, artefatos de teste, entre outros. Monitorei logs e métricas de qualidade com Datadog e Grafana. Fui um dos responsáveis na manutenção de sistemas legados, com foco em testes de regressão, validação de regras de negócio e análise de dados em PostgreSQL e SQL Server. Além disso, atuei efetivamente na implementação de novas features em um aplicativo mobile bancário.',
     'experience.fintech':
@@ -33,6 +45,7 @@ const translations = {
       'Liderei QA em projetos de migração de ERP para web, atuando diretamente no levantamento de requisitos, regras de negócio e critérios de aceite. Implementei as primeiras suítes de automação de testes com Cypress e integração com GitHub Actions. Fui o responsável pela criação de documentação interna e externa, visando auxiliar todos. Atuei na escrita e execução de casos de teste em sistemas legados para depósitos de materiais de construção.',
     'section.skills': 'Ferramentas',
     'skills.title': 'Principais ferramentas',
+    'skills.aiAgents': 'Agentes de IA',
     'section.results': 'Resultados',
     'results.title': 'Principais conquistas',
     'results.item1': 'Liderei a validação de APIs governamentais brasileiras para um sistema de empréstimos e ajudei a empresa a entrar entre as mais rápidas da integração, gerando aumento de 24x nas vendas.',
@@ -44,12 +57,16 @@ const translations = {
     'education.degree': 'Bacharelado em Engenharia de Software',
     'section.languages': 'Idiomas',
     'languages.title': 'Idiomas',
+    'languages.portuguese': 'Português',
     'languages.pt': 'Nativo / Bilíngue',
     'languages.en': 'Proficiência profissional completa',
     'section.contact': 'Contato',
     'contact.title': 'Vamos conversar',
   },
   en: {
+    'page.title': 'Lucas Camargo | QA Engineer',
+    'page.description':
+      'Lucas Camargo’s portfolio: QA Engineer experienced in test automation, API testing, CI/CD, and artificial intelligence.',
     'nav.home': 'Home',
     'nav.about': 'About',
     'nav.experience': 'Experience',
@@ -58,6 +75,11 @@ const translations = {
     'nav.education': 'Education',
     'nav.languages': 'Languages',
     'nav.contact': 'Contact',
+    'accessibility.navigation': 'Main navigation',
+    'accessibility.siteActions': 'Site actions',
+    'accessibility.languageSelector': 'Select language',
+    'accessibility.profile': 'Profile',
+    'accessibility.portrait': 'Portrait of Lucas Camargo',
     'hero.role': 'QA Engineer | Playwright & Cypress | CI/CD | AI Prompt | Manual Testing',
     'hero.description':
       'QA Engineer with 4+ years of experience in automation, API testing, functional validation, and AI-assisted QA workflows for web, mobile, ERP, fintech, and insurance products.',
@@ -73,6 +95,10 @@ const translations = {
     'stats.languages': 'Bilingual',
     'section.experience': 'Experience',
     'experience.title': 'Career journey',
+    'date.gazin': 'Aug 2025 - Present',
+    'date.finnet': 'Feb 2025 - Jul 2025',
+    'date.sabium': 'Jan 2024 - Feb 2025',
+    'date.ncs': 'Dec 2021 - Dec 2023',
     'experience.gazin':
       'Built and maintained a Playwright framework, integrating it with GitLab CI on an insurance project and making extensive use of LLMs. I was responsible for third-party integration testing via REST APIs using Postman and Swagger. I used AI agents to automate QA processes, such as generating test cases, test data, and test artifacts. I monitored logs and quality metrics with Datadog and Grafana. I also helped maintain legacy systems, focusing on regression testing, business-rule validation, and data analysis in PostgreSQL and SQL Server. In addition, I actively contributed to implementing new features in a mobile banking app.',
     'experience.fintech':
@@ -83,17 +109,19 @@ const translations = {
       'Led QA on ERP-to-web migration projects, directly contributing to requirements gathering, business rules, and acceptance criteria. Implemented the first test automation suites with Cypress and integrated them with GitHub Actions. Was responsible for creating internal and external documentation to support the team. Wrote and executed test cases for legacy systems used by building-material warehouses.',
     'section.skills': 'Tools',
     'skills.title': 'Key tools',
+    'skills.aiAgents': 'AI agents',
     'section.results': 'Results',
     'results.title': 'Key achievements',
-    'results.item1': 'Led validation of Brazilian government APIs for a loan platform and helped the company become one of the fastest to integrate, driving a 24x increase in sales.',
-    'results.item2': 'Reduced regression time by 50% by building sustainable Cypress and Playwright frameworks centered on risk prioritization and POM architecture.',
-    'results.item3': 'Applied AI to review commits against business requirements before manual testing and generate Jira bug reports with greater efficiency.',
-    'results.item4': 'Led the QA strategy for an ERP-to-web migration and supported customer approval with a high standard of quality and usability.',
+    'results.item1': 'Led validation of Brazilian government APIs for a loan platform, helping the company rank among the fastest to integrate and driving a 24-fold increase in sales.',
+    'results.item2': 'Reduced regression suite execution time by 50% by building Cypress and Playwright test automation suites from scratch, focusing on risk and POM architecture to deliver the product faster and more reliably.',
+    'results.item3': 'Used GitLab MCP and LLMs to review commits against documentation created in Jira cards, also using the Jira MCP.',
+    'results.item4': 'Led the QA strategy for an ERP-to-web migration, from requirements gathering and business-rule analysis through to supporting customer approval with a high standard of quality and usability.',
     'section.education': 'Education',
     'education.title': 'Academic background',
     'education.degree': 'Bachelor’s Degree in Software Engineering',
     'section.languages': 'Languages',
     'languages.title': 'Languages',
+    'languages.portuguese': 'Portuguese',
     'languages.pt': 'Native / Bilingual',
     'languages.en': 'Full professional proficiency',
     'section.contact': 'Contact',
@@ -107,11 +135,22 @@ const langButtons = document.querySelectorAll('.lang-btn');
 function applyLanguage(lang) {
   const dictionary = translations[lang] || translations.pt;
 
+  document.title = dictionary['page.title'];
+  document.querySelector('meta[name="description"]').content = dictionary['page.description'];
+
   elements.forEach((element) => {
     const key = element.dataset.i18n;
     if (dictionary[key]) {
       element.textContent = dictionary[key];
     }
+  });
+
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+    element.setAttribute('aria-label', dictionary[element.dataset.i18nAriaLabel]);
+  });
+
+  document.querySelectorAll('[data-i18n-alt]').forEach((element) => {
+    element.setAttribute('alt', dictionary[element.dataset.i18nAlt]);
   });
 
   langButtons.forEach((button) => {
