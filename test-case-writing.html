@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Como eu escrevo meus casos de teste? | Lucas Camargo</title>
+    <meta
+      name="description"
+      content="Exemplos de escrita de casos de teste manuais para API e interface."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-title-key="testCases.pageTitle" data-description-key="testCases.pageDescription">
+    <div class="page-shell">
+      <header class="topbar subpage-topbar">
+        <a class="brand" href="index.html" aria-label="Portfólio de Lucas Camargo" data-i18n-aria-label="testCases.brandLabel">
+          <span class="brand-name">lucas</span><span class="brand-tag">@qa</span>
+        </a>
+
+        <div class="nav-actions subpage-actions" aria-label="Ações do site" data-i18n-aria-label="accessibility.siteActions">
+          <div class="lang-switch" aria-label="Selecionar idioma" data-i18n-aria-label="accessibility.languageSelector">
+            <button class="lang-btn active" data-lang="pt" type="button">PT</button>
+            <button class="lang-btn" data-lang="en" type="button">EN</button>
+          </div>
+          <a class="secondary-btn" href="index.html" data-i18n="testCases.back"></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero subpage-hero">
+          <div class="hero-content">
+            <div class="hero-copy">
+              <span class="eyebrow" data-i18n="testCases.eyebrow"></span>
+              <h1 data-i18n="testCases.title"></h1>
+              <p data-i18n="testCases.description"></p>
+
+              <nav class="skills-list" aria-label="Seções da página" data-i18n-aria-label="testCases.sections">
+                <a href="#api" data-i18n="testCases.api"></a>
+                <a href="#interface" data-i18n="testCases.interface"></a>
+              </nav>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="api">
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="testCases.api"></span>
+            <h3 data-i18n="testCases.apiHeading"></h3>
+          </div>
+          <a
+            class="primary-btn"
+            href="https://serverest.dev/?lang=en#/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="testCases.openApi"
+          ></a>
+          <div
+            class="test-case-container"
+            data-test-case-list
+            data-source="data/api-test-cases.js"
+            data-test-case-type="api"
+            aria-live="polite"
+          ></div>
+        </section>
+
+        <section class="section" id="interface">
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="testCases.interface"></span>
+            <h3 data-i18n="testCases.interfaceHeading"></h3>
+          </div>
+          <a
+            class="primary-btn"
+            href="https://front.serverest.dev/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="testCases.openInterface"
+          ></a>
+          <div
+            class="test-case-container"
+            data-test-case-list
+            data-source="data/interface-test-cases.js"
+            data-test-case-type="interface"
+            aria-live="polite"
+          ></div>
+        </section>
+      </main>
+    </div>
+    <script src="data/api-test-cases.js"></script>
+    <script src="data/api-test-cases.en.js"></script>
+    <script src="data/interface-test-cases.js"></script>
+    <script src="data/interface-test-cases.en.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
