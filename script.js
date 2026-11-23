@@ -52,9 +52,94 @@ const translations = {
     'section.portfolio': 'Portfólio',
     'projects.title': 'Skills & projetos',
     'projects.testCaseWriting': 'Escrita de casos de teste',
+    'projects.testPrioritization': 'Priorização de testes',
+    'testPrioritization.pageTitle': 'Como priorizo os testes? | Lucas Camargo',
+    'testPrioritization.pageDescription':
+      'Aqui mostrarei como priorizo testes de API e Interface.',
+    'testPrioritization.back': 'Voltar a Home',
+    'testPrioritization.eyebrow': 'Guia prático',
+    'testPrioritization.title': 'Como priorizo os testes?',
+    'testPrioritization.description':
+      'Aqui mostrarei como priorizo testes de API e Interface.',
+    'testPrioritization.sections': 'Seções da página',
+    'testPrioritization.api': 'API',
+    'testPrioritization.interface': 'Interface',
+    'testPrioritization.openApi': 'Abrir documentação da API',
+    'testPrioritization.openInterface': 'Abrir aplicação',
+    'testPrioritization.frameworkTitle': 'Critérios de priorização',
+    'testPrioritization.frameworkIntro':
+      'A prioridade combina impacto da falha e probabilidade de ocorrência. Ajusto a ordem considerando também exposição, mudanças recentes, dependências e o custo de execução. Prioridade indica quando executar o teste; severidade descreve o impacto de um defeito encontrado.',
+    'testPrioritization.scaleTitle': 'Níveis de prioridade',
+    'testPrioritization.p0Title': 'P0 · Bloqueador',
+    'testPrioritization.p0Body':
+      'Fluxo essencial, risco de segurança ou perda/corrupção de dados. Executar primeiro e bloquear a liberação quando falhar.',
+    'testPrioritization.p1Title': 'P1 · Alta',
+    'testPrioritization.p1Body':
+      'Regra de negócio importante ou caminho frequente, com impacto significativo. Executar a cada mudança relacionada e antes da liberação.',
+    'testPrioritization.p2Title': 'P2 · Média',
+    'testPrioritization.p2Body':
+      'Variação, filtro ou cenário menos frequente, com alternativa ou impacto limitado. Incluir na regressão planejada.',
+    'testPrioritization.p3Title': 'P3 · Baixa',
+    'testPrioritization.p3Body':
+      'Baixa exposição e baixo impacto, normalmente visual ou de conveniência. Executar quando houver capacidade ou mudança relevante.',
+    'testPrioritization.orderTitle': 'Como aplicar na prática',
+    'testPrioritization.order1':
+      'Mapear objetivos de negócio, usuários, dados sensíveis e jornadas essenciais.',
+    'testPrioritization.order2':
+      'Avaliar impacto e probabilidade com evidências: histórico de defeitos, complexidade, frequência de uso, dependências e escopo da mudança.',
+    'testPrioritization.order3':
+      'Ordenar os testes por risco; executar primeiro o menor conjunto que dá confiança nos caminhos críticos.',
+    'testPrioritization.order4':
+      'Repriorizar quando o código, os incidentes, os requisitos ou o contexto de uso mudarem; registrar a justificativa.',
+    'testPrioritization.apiHeading': 'Priorização para API',
+    'testPrioritization.apiIntro':
+      'No ServeRest, priorizo o contrato de autenticação e as operações que criam, alteram ou removem dados. Depois cubro filtros, variações de entrada e condições menos comuns.',
+    'testPrioritization.apiExamplesTitle': 'Exemplos em ordem de execução',
+    'testPrioritization.apiCase1Title': 'P0 · Login e autenticação',
+    'testPrioritization.apiCase1Body':
+      'POST /login com credenciais válidas e inválidas; verificar status, mensagem e emissão (ou ausência) do token. A falha impede autenticação e pode afetar todas as rotas protegidas.',
+    'testPrioritization.apiCase2Title': 'P0 · Acesso protegido e dados',
+    'testPrioritization.apiCase2Body':
+      'Usar o token em uma operação protegida, como criar um carrinho, e conferir a associação à conta. Autorização incorreta pode permitir acesso indevido ou interromper uma jornada essencial.',
+    'testPrioritization.apiCase3Title': 'P1 · Cadastro e unicidade do e-mail',
+    'testPrioritization.apiCase3Body':
+      'POST /usuarios com dados válidos e tentativa de repetir um e-mail. A criação e a regra de unicidade são centrais para identidade e consistência dos dados.',
+    'testPrioritization.apiCase4Title': 'P1 · Atualização e exclusão com regras',
+    'testPrioritization.apiCase4Body':
+      'PUT /usuarios/{_id} para atualizar ou criar conforme o contrato; DELETE /usuarios/{_id} para validar exclusão e bloqueio quando existe carrinho associado. São operações mutáveis, então use dados isolados e limpeza.',
+    'testPrioritization.apiCase5Title': 'P2 · Filtros e combinações',
+    'testPrioritization.apiCase5Body':
+      'GET /usuarios com filtros por ID, nome, e-mail ou administrador. Priorize filtros alterados e combinações importantes para consumidores da API.',
+    'testPrioritization.apiCase6Title': 'P2/P3 · Entradas de borda e contrato',
+    'testPrioritization.apiCase6Body':
+      'Campos omitidos, formatos inesperados e consultas sem resultados. A especificação não define todos esses resultados; confirme o contrato esperado antes de torná-los bloqueadores.',
+    'testPrioritization.interfaceHeading': 'Priorização para interface',
+    'testPrioritization.interfaceIntro':
+      'Na interface ServeRest, começo pela jornada de login e pelos dois caminhos de cadastro. Dou prioridade alta à escolha entre usuário normal e administrador, porque ela afeta os acessos disponíveis.',
+    'testPrioritization.interfaceExamplesTitle': 'Exemplos em ordem de execução',
+    'testPrioritization.uiCase1Title': 'P0 · Entrar e rejeitar credenciais inválidas',
+    'testPrioritization.uiCase1Body':
+      'Validar login válido, credenciais inválidas e retorno de erro sem abrir uma sessão. É o ponto de entrada para usuários existentes e protege o acesso às áreas autenticadas.',
+    'testPrioritization.uiCase2Title': 'P0 · Respeitar o papel da conta',
+    'testPrioritization.uiCase2Body':
+      'Criar uma conta com a opção “Cadastrar como administrador?” desmarcada e outra marcada; validar os acessos de cada papel. Atribuição incorreta pode conceder privilégios indevidos ou bloquear trabalho.',
+    'testPrioritization.uiCase3Title': 'P1 · Cadastro pelos dois caminhos',
+    'testPrioritization.uiCase3Body':
+      'Acessar o cadastro público por “Cadastre-se” e o cadastro autenticado pelo header ou card. Confirmar que ambos aplicam as mesmas regras e permitem concluir a jornada.',
+    'testPrioritization.uiCase4Title': 'P1 · Impedir e-mail duplicado',
+    'testPrioritization.uiCase4Body':
+      'Tentar cadastrar novamente um e-mail existente nos dois caminhos. A duplicidade afeta identidade e consistência dos dados.',
+    'testPrioritization.uiCase5Title': 'P1/P2 · Validações dos campos',
+    'testPrioritization.uiCase5Body':
+      'Verificar campos obrigatórios e formato do e-mail. Eleve a prioridade se a validação mudou ou se defeitos recentes indicarem regressão.',
+    'testPrioritization.uiCase6Title': 'P2/P3 · Variações visuais e conveniência',
+    'testPrioritization.uiCase6Body':
+      'Verificar fechamento de alertas, navegação de retorno, mensagens e detalhes visuais. Suba a prioridade quando um problema impedir a conclusão ou afetar acessibilidade.',
+    'testPrioritization.safetyNote':
+      'As prioridades são exemplos iniciais, não uma classificação permanente. Ajuste-as ao impacto para o negócio, à mudança atual, ao histórico de falhas e aos critérios de liberação do produto. Use contas e dados descartáveis em operações que alteram o ambiente.',
     'testCases.pageTitle': 'Como eu escrevo os casos de teste? | Lucas Camargo',
     'testCases.pageDescription': 'Exemplos de escrita de casos de teste manuais para API e interface.',
-    'testCases.back': 'Voltar ao portfólio',
+    'testCases.back': 'Voltar a Home',
     'testCases.eyebrow': 'Guia prático',
     'testCases.title': 'Como eu escrevo os casos de teste?',
     'testCases.description': 'Exemplos de testes manuais para API e interface.',
@@ -146,6 +231,91 @@ const translations = {
     'section.portfolio': 'Portfolio',
     'projects.title': 'Skills & Projects',
     'projects.testCaseWriting': 'Test Case Writing',
+    'projects.testPrioritization': 'Test Prioritization',
+    'testPrioritization.pageTitle': 'How do I prioritize tests? | Lucas Camargo',
+    'testPrioritization.pageDescription':
+      'Here I show how I prioritize API and interface tests.',
+    'testPrioritization.back': 'Back to portfolio',
+    'testPrioritization.eyebrow': 'Practical guide',
+    'testPrioritization.title': 'How do I prioritize tests?',
+    'testPrioritization.description':
+      'Here I show how I prioritize API and interface tests.',
+    'testPrioritization.sections': 'Page sections',
+    'testPrioritization.api': 'API',
+    'testPrioritization.interface': 'Interface',
+    'testPrioritization.openApi': 'Open API documentation',
+    'testPrioritization.openInterface': 'Open application',
+    'testPrioritization.frameworkTitle': 'Prioritization criteria',
+    'testPrioritization.frameworkIntro':
+      'Priority combines failure impact and likelihood. I also consider exposure, recent changes, dependencies, and execution cost when ordering tests. Priority tells us when to run a test; severity describes the impact of a defect found.',
+    'testPrioritization.scaleTitle': 'Priority levels',
+    'testPrioritization.p0Title': 'P0 · Blocker',
+    'testPrioritization.p0Body':
+      'Essential flow, security risk, or data loss/corruption. Run first and block release if it fails.',
+    'testPrioritization.p1Title': 'P1 · High',
+    'testPrioritization.p1Body':
+      'Important business rule or frequent path with significant impact. Run for every related change and before release.',
+    'testPrioritization.p2Title': 'P2 · Medium',
+    'testPrioritization.p2Body':
+      'Variation, filter, or less frequent scenario with a workaround or limited impact. Include in planned regression.',
+    'testPrioritization.p3Title': 'P3 · Low',
+    'testPrioritization.p3Body':
+      'Low exposure and low impact, usually visual or convenience-related. Run when capacity or relevant changes warrant it.',
+    'testPrioritization.orderTitle': 'How to apply it',
+    'testPrioritization.order1':
+      'Map business goals, users, sensitive data, and essential journeys.',
+    'testPrioritization.order2':
+      'Assess impact and likelihood using evidence: defect history, complexity, usage frequency, dependencies, and change scope.',
+    'testPrioritization.order3':
+      'Order tests by risk; run the smallest set that builds confidence in critical paths first.',
+    'testPrioritization.order4':
+      'Reprioritize when code, incidents, requirements, or usage context change; record the rationale.',
+    'testPrioritization.apiHeading': 'API prioritization',
+    'testPrioritization.apiIntro':
+      'For ServeRest, I prioritize the authentication contract and operations that create, update, or delete data. Then I cover filters, input variations, and less common conditions.',
+    'testPrioritization.apiExamplesTitle': 'Examples in execution order',
+    'testPrioritization.apiCase1Title': 'P0 · Login and authentication',
+    'testPrioritization.apiCase1Body':
+      'POST /login with valid and invalid credentials; verify status, message, and token issuance (or absence). Failure blocks authentication and may affect every protected route.',
+    'testPrioritization.apiCase2Title': 'P0 · Protected access and data',
+    'testPrioritization.apiCase2Body':
+      'Use the token in a protected operation, such as creating a cart, and verify its association with the account. Incorrect authorization can allow unauthorized access or interrupt an essential journey.',
+    'testPrioritization.apiCase3Title': 'P1 · User creation and email uniqueness',
+    'testPrioritization.apiCase3Body':
+      'POST /usuarios with valid data and an attempt to reuse an email. Creation and uniqueness are central to identity and data consistency.',
+    'testPrioritization.apiCase4Title': 'P1 · Updates and deletion rules',
+    'testPrioritization.apiCase4Body':
+      'PUT /usuarios/{_id} to update or create as defined by the contract; DELETE /usuarios/{_id} to verify deletion and the block when a cart exists. These operations mutate data, so use isolated data and clean it up.',
+    'testPrioritization.apiCase5Title': 'P2 · Filters and combinations',
+    'testPrioritization.apiCase5Body':
+      'GET /usuarios with filters for ID, name, email, or administrator. Prioritize changed filters and combinations important to API consumers.',
+    'testPrioritization.apiCase6Title': 'P2/P3 · Edge inputs and contract',
+    'testPrioritization.apiCase6Body':
+      'Omitted fields, unexpected formats, and queries with no results. The specification does not define every outcome; confirm the expected contract before making these release blockers.',
+    'testPrioritization.interfaceHeading': 'Interface prioritization',
+    'testPrioritization.interfaceIntro':
+      'For the ServeRest interface, I start with login and the two user-registration paths. I give high priority to the choice between standard and administrator accounts because it affects available access.',
+    'testPrioritization.interfaceExamplesTitle': 'Examples in execution order',
+    'testPrioritization.uiCase1Title': 'P0 · Sign in and reject invalid credentials',
+    'testPrioritization.uiCase1Body':
+      'Validate successful login, invalid credentials, and an error response without starting a session. This is the entry point for existing users and protects authenticated areas.',
+    'testPrioritization.uiCase2Title': 'P0 · Enforce the account role',
+    'testPrioritization.uiCase2Body':
+      'Create one account with “Register as administrator?” (“Cadastrar como administrador?”) unchecked and another checked; validate access for each role. Incorrect assignment can grant undue privileges or block work.',
+    'testPrioritization.uiCase3Title': 'P1 · Registration through both paths',
+    'testPrioritization.uiCase3Body':
+      'Open public registration through “Sign up” (“Cadastre-se”) and authenticated registration through the header or card. Confirm both paths apply the same rules and complete the journey.',
+    'testPrioritization.uiCase4Title': 'P1 · Prevent duplicate email addresses',
+    'testPrioritization.uiCase4Body':
+      'Attempt to register an existing email through both paths. Duplicates affect identity and data consistency.',
+    'testPrioritization.uiCase5Title': 'P1/P2 · Field validation',
+    'testPrioritization.uiCase5Body':
+      'Check required fields and email format. Raise priority when validation changes or recent defects indicate regression risk.',
+    'testPrioritization.uiCase6Title': 'P2/P3 · Visual and convenience variations',
+    'testPrioritization.uiCase6Body':
+      'Check alert dismissal, return navigation, messages, and visual details. Raise priority when an issue blocks completion or affects accessibility.',
+    'testPrioritization.safetyNote':
+      'These priorities are starting examples, not permanent classifications. Adjust them to business impact, current changes, defect history, and product release criteria. Use disposable accounts and data for operations that change the environment.',
     'testCases.pageTitle': 'How I write my test cases | Lucas Camargo',
     'testCases.pageDescription': 'Manual test case writing examples for APIs and user interfaces.',
     'testCases.back': 'Back to portfolio',
