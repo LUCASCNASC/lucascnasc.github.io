@@ -55,12 +55,12 @@ const translations = {
     'projects.testPrioritization': 'Priorização de testes',
     'testPrioritization.pageTitle': 'Como priorizo os testes? | Lucas Camargo',
     'testPrioritization.pageDescription':
-      'Aqui mostrarei como priorizo testes de API e Interface.',
+      'Aqui mostro como priorizo testes de API e interface.',
     'testPrioritization.back': 'Voltar a Home',
     'testPrioritization.eyebrow': 'Guia prático',
     'testPrioritization.title': 'Como priorizo os testes?',
     'testPrioritization.description':
-      'Aqui mostrarei como priorizo testes de API e Interface.',
+      'Aqui mostro como priorizo testes de API e interface.',
     'testPrioritization.sections': 'Seções da página',
     'testPrioritization.api': 'API',
     'testPrioritization.interface': 'Interface',
@@ -137,11 +137,11 @@ const translations = {
       'Verificar fechamento de alertas, navegação de retorno, mensagens e detalhes visuais. Suba a prioridade quando um problema impedir a conclusão ou afetar acessibilidade.',
     'testPrioritization.safetyNote':
       'As prioridades são exemplos iniciais, não uma classificação permanente. Ajuste-as ao impacto para o negócio, à mudança atual, ao histórico de falhas e aos critérios de liberação do produto. Use contas e dados descartáveis em operações que alteram o ambiente.',
-    'testCases.pageTitle': 'Como eu escrevo os casos de teste? | Lucas Camargo',
+    'testCases.pageTitle': 'Como eu escrevo meus casos de teste? | Lucas Camargo',
     'testCases.pageDescription': 'Exemplos de escrita de casos de teste manuais para API e interface.',
     'testCases.back': 'Voltar a Home',
     'testCases.eyebrow': 'Guia prático',
-    'testCases.title': 'Como eu escrevo os casos de teste?',
+    'testCases.title': 'Como eu escrevo meus casos de teste?',
     'testCases.description': 'Exemplos de testes manuais para API e interface.',
     'testCases.sections': 'Seções da página',
     'testCases.api': 'API',
@@ -163,6 +163,17 @@ const translations = {
     'testCases.steps': 'Passos',
     'testCases.expectedResult': 'Resultado esperado',
     'testCases.priority': 'Prioridade',
+    'testCases.searchLabel': 'Buscar casos de teste',
+    'testCases.searchPlaceholder': 'ID, título, endpoint ou texto do cenário',
+    'testCases.endpointFilter': 'Endpoint ou fluxo',
+    'testCases.allEndpoints': 'Todos os endpoints e fluxos',
+    'testCases.priorityFilter': 'Prioridade',
+    'testCases.allPriorities': 'Todas as prioridades',
+    'testCases.priorityHigh': 'Alta',
+    'testCases.priorityMedium': 'Média',
+    'testCases.priorityLow': 'Baixa',
+    'testCases.resultCount': 'Exibindo {visible} de {total} casos',
+    'testCases.noResults': 'Nenhum caso corresponde aos filtros.',
     'results.item1': 'Liderei a validação de APIs governamentais brasileiras para um sistema de empréstimos e ajudei a empresa a entrar entre as mais rápidas da integração, gerando aumento de 24x nas vendas.',
     'results.item2': 'Reduzi o tempo de execução de suítes de regressão em 50% ao desenvolver do zero suítes de automação de testes com Cypress e Playwright focadas em risco e arquitetura POM, entregando o produto de maneira mais rápida e confiável',
     'results.item3': 'Utilizei MCP Gitlab + LLM para revisar commits e compará-los com a documentação criada por meio de cards, também usando MCP Jira.',
@@ -342,6 +353,17 @@ const translations = {
     'testCases.steps': 'Steps',
     'testCases.expectedResult': 'Expected result',
     'testCases.priority': 'Priority',
+    'testCases.searchLabel': 'Search test cases',
+    'testCases.searchPlaceholder': 'ID, title, endpoint, or scenario text',
+    'testCases.endpointFilter': 'Endpoint or flow',
+    'testCases.allEndpoints': 'All endpoints and flows',
+    'testCases.priorityFilter': 'Priority',
+    'testCases.allPriorities': 'All priorities',
+    'testCases.priorityHigh': 'High',
+    'testCases.priorityMedium': 'Medium',
+    'testCases.priorityLow': 'Low',
+    'testCases.resultCount': 'Showing {visible} of {total} test cases',
+    'testCases.noResults': 'No test cases match the filters.',
     'results.item1': 'Led validation of Brazilian government APIs for a loan platform, helping the company rank among the fastest to integrate and driving a 24-fold increase in sales.',
     'results.item2': 'Reduced regression suite execution time by 50% by building Cypress and Playwright test automation suites from scratch, focusing on risk and POM architecture to deliver the product faster and more reliably.',
     'results.item3': 'Used GitLab MCP and LLMs to review commits against documentation created in Jira cards, also using the Jira MCP.',
@@ -358,6 +380,8 @@ const translations = {
     'contact.title': 'Let’s connect',
   }
 };
+
+window.portfolioTranslations = translations;
 
 const langButtons = document.querySelectorAll('.lang-btn');
 
@@ -416,7 +440,14 @@ function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
 
-function renderTestCase(testCase, dictionary) {
+function normalizeSearchText(value) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function renderTestCase(testCase, dictionary, endpoint) {
   if (
     !testCase ||
     !isNonEmptyString(testCase.id) ||
@@ -438,6 +469,19 @@ function renderTestCase(testCase, dictionary) {
 
   const card = document.createElement('details');
   card.className = 'test-case-card';
+  card.dataset.endpoint = endpoint;
+  card.dataset.priority = testCase.priority || '';
+  card.dataset.search = normalizeSearchText(
+    [
+      endpoint,
+      testCase.id,
+      testCase.title,
+      testCase.objective,
+      ...testCase.preconditions,
+      ...testCase.steps.flatMap((step) => [step.action, step.expectedResult]),
+      testCase.priority || '',
+    ].join(' ')
+  );
 
   const summary = document.createElement('summary');
   summary.className = 'test-case-summary';
@@ -504,6 +548,148 @@ function renderTestCase(testCase, dictionary) {
   return card;
 }
 
+function createTestCaseFilters(container, endpointGroups, caseTranslations, dictionary, language) {
+  const filters = document.createElement('div');
+  filters.className = 'test-case-filters';
+
+  const searchField = document.createElement('div');
+  searchField.className = 'test-case-filter';
+  const searchId = `test-case-search-${container.dataset.testCaseType}`;
+  const searchLabel = createTranslatedElement(
+    'label',
+    'test-case-filter-label',
+    'testCases.searchLabel',
+    dictionary
+  );
+  searchLabel.htmlFor = searchId;
+  const searchInput = document.createElement('input');
+  searchInput.id = searchId;
+  searchInput.type = 'search';
+  searchInput.className = 'test-case-filter-control';
+  searchInput.dataset.testCaseSearch = '';
+  searchInput.placeholder = dictionary['testCases.searchPlaceholder'];
+  searchInput.value = container.dataset.filterSearch || '';
+  searchField.append(searchLabel, searchInput);
+
+  const endpointField = document.createElement('div');
+  endpointField.className = 'test-case-filter';
+  const endpointId = `test-case-endpoint-${container.dataset.testCaseType}`;
+  const endpointLabel = createTranslatedElement(
+    'label',
+    'test-case-filter-label',
+    'testCases.endpointFilter',
+    dictionary
+  );
+  endpointLabel.htmlFor = endpointId;
+  const endpointSelect = document.createElement('select');
+  endpointSelect.id = endpointId;
+  endpointSelect.className = 'test-case-filter-control';
+  endpointSelect.dataset.testCaseEndpoint = '';
+
+  const allEndpoints = document.createElement('option');
+  allEndpoints.value = '';
+  allEndpoints.textContent = dictionary['testCases.allEndpoints'];
+  endpointSelect.append(allEndpoints);
+  endpointGroups.forEach((cases, endpoint) => {
+    const option = document.createElement('option');
+    option.value = endpoint;
+    option.textContent =
+      language === 'en'
+        ? caseTranslations?.[cases[0].id]?.endpoint || endpoint
+        : endpoint;
+    endpointSelect.append(option);
+  });
+  endpointSelect.value = container.dataset.filterEndpoint || '';
+  endpointField.append(endpointLabel, endpointSelect);
+
+  const priorityField = document.createElement('div');
+  priorityField.className = 'test-case-filter';
+  const priorityId = `test-case-priority-${container.dataset.testCaseType}`;
+  const priorityLabel = createTranslatedElement(
+    'label',
+    'test-case-filter-label',
+    'testCases.priorityFilter',
+    dictionary
+  );
+  priorityLabel.htmlFor = priorityId;
+  const prioritySelect = document.createElement('select');
+  prioritySelect.id = priorityId;
+  prioritySelect.className = 'test-case-filter-control';
+  prioritySelect.dataset.testCasePriority = '';
+  [
+    ['', 'testCases.allPriorities'],
+    ['High', 'testCases.priorityHigh'],
+    ['Medium', 'testCases.priorityMedium'],
+    ['Low', 'testCases.priorityLow'],
+  ].forEach(([value, key]) => {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = dictionary[key];
+    prioritySelect.append(option);
+  });
+  prioritySelect.value = container.dataset.filterPriority || '';
+  priorityField.append(priorityLabel, prioritySelect);
+
+  const resultCount = document.createElement('p');
+  resultCount.className = 'test-case-filter-count';
+  resultCount.setAttribute('role', 'status');
+  resultCount.setAttribute('aria-live', 'polite');
+
+  const noResults = createTranslatedElement(
+    'p',
+    'test-case-status test-case-no-results',
+    'testCases.noResults',
+    dictionary
+  );
+  noResults.hidden = true;
+
+  filters.append(searchField, endpointField, priorityField);
+  container.append(filters, resultCount, noResults);
+
+  const applyFilters = () => {
+    const query = normalizeSearchText(searchInput.value.trim());
+    const selectedEndpoint = endpointSelect.value;
+    const selectedPriority = prioritySelect.value;
+    container.dataset.filterSearch = searchInput.value;
+    container.dataset.filterEndpoint = selectedEndpoint;
+    container.dataset.filterPriority = selectedPriority;
+
+    let visibleCount = 0;
+    container.querySelectorAll('.test-case-card').forEach((card) => {
+      const matches =
+        (!query || card.dataset.search.includes(query)) &&
+        (!selectedEndpoint || card.dataset.endpoint === selectedEndpoint) &&
+        (!selectedPriority || card.dataset.priority === selectedPriority);
+      card.hidden = !matches;
+      if (matches) {
+        visibleCount += 1;
+      }
+    });
+
+    const hasActiveFilter = Boolean(query || selectedEndpoint || selectedPriority);
+    container.querySelectorAll('.test-case-group').forEach((group) => {
+      const hasVisibleCases = Boolean(
+        group.querySelector('.test-case-card:not([hidden])')
+      );
+      group.hidden = !hasVisibleCases;
+      if (hasActiveFilter && hasVisibleCases) {
+        group.open = true;
+      }
+    });
+
+    resultCount.textContent = dictionary['testCases.resultCount']
+      .replace('{visible}', String(visibleCount))
+      .replace('{total}', String(container.querySelectorAll('.test-case-card').length));
+    noResults.hidden = visibleCount > 0;
+  };
+
+  searchInput.addEventListener('input', applyFilters);
+  endpointSelect.addEventListener('change', applyFilters);
+  prioritySelect.addEventListener('change', applyFilters);
+
+  return applyFilters;
+}
+
 function loadTestCases() {
   const containers = document.querySelectorAll('[data-test-case-list]');
 
@@ -547,6 +733,14 @@ function loadTestCases() {
         endpointGroups.get(endpoint).push(testCase);
       });
 
+      const applyFilters = createTestCaseFilters(
+        container,
+        endpointGroups,
+        caseTranslations,
+        dictionary,
+        language
+      );
+
       endpointGroups.forEach((cases, endpoint) => {
         const group = document.createElement('details');
         group.className = 'test-case-group';
@@ -576,7 +770,11 @@ function loadTestCases() {
             throw new Error(`Missing English translation for test case ${testCase.id}.`);
           }
           list.append(
-            renderTestCase(translation ? { ...testCase, ...translation } : testCase, dictionary)
+            renderTestCase(
+              translation ? { ...testCase, ...translation } : testCase,
+              dictionary,
+              translatedEndpoint
+            )
           );
         });
         group.append(list);
@@ -626,7 +824,9 @@ function loadTestCases() {
           container.append(group);
         }
       });
+      applyFilters();
     } catch (error) {
+      container.replaceChildren();
       const dictionary =
         translations[document.documentElement.lang === 'en-US' ? 'en' : 'pt'];
       const message = dictionary['testCases.loadError'].replace('{file}', source);
