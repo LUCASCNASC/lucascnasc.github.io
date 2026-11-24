@@ -557,6 +557,52 @@ a {
   margin-top: 8px;
 }
 
+.test-case-filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) minmax(180px, 1fr) minmax(140px, 0.8fr);
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+
+.test-case-filter {
+  display: grid;
+  gap: 6px;
+}
+
+.test-case-filter-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.test-case-filter-control {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(4, 12, 17, 0.88);
+  color: var(--text);
+  font: inherit;
+}
+
+.test-case-filter-control:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.test-case-filter-count {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.test-case-card[hidden],
+.test-case-group[hidden],
+.test-case-no-results[hidden] {
+  display: none;
+}
+
 .test-case-group {
   margin-top: 20px;
   background: rgba(10, 20, 26, 0.55);
@@ -887,6 +933,10 @@ a {
 
   .hero-copy p {
     font-size: 1rem;
+  }
+
+  .test-case-filters {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions {

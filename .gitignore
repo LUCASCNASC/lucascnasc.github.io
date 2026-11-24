@@ -1,2 +1,5 @@
 docs/
 lucas-career/
+node_modules/
+dist/
+.vite/
